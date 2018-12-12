@@ -1,0 +1,21 @@
+<div class="player">
+    <form id="player-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <h1>
+            <input 
+                type="text" 
+                placeholder="nickname" 
+                name="name"
+                >
+        </h1>
+        <!-- <p *ngFor="point of player.points">{{ point }}</p> -->
+        <p>
+            <input 
+                type="number" 
+                placeholder="add points here" 
+                name='points'
+                >
+        </p>
+    </form>
+    <button type="submit">Add Points</button>
+    <!-- <p>Total: {{ total }}</p> -->
+</div>

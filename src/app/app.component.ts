@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pionts';
+  public player = 0;
+  public players: Array<number> = [];
+  public count: string;
+
+  public addPlayer() {
+    this.players.push(this.player);
+    this.count += 1;
+  }
 }
