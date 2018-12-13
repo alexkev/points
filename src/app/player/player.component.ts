@@ -21,7 +21,8 @@ export class PlayerComponent {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    // const newPlayer = new Player(this.playerService.getId(), value.name, value.points);
-    // update or player
+    // TODO this.playerService.getId()
+    const newPlayer = new Player(1234 , value.name, value.points);
+    this.playerService.addPlayer();
   }
 }
