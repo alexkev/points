@@ -12,17 +12,23 @@ import { PlayerService } from '../player.service';
 export class PlayerComponent {
   player: Player;
   total: number;
+  playerName: string;
 
   constructor(private playerService: PlayerService) {}
+
+  getPlayer(form: NgForm) {
+    this.playerName = form.value.name;
+    console.log(this.playerName);
+  }
 
   getTotal() {
     // TODO get total of points array
   }
 
-  onSubmit(form: NgForm) {
+  addPoints(form: NgForm) {
     const value = form.value;
     // TODO this.playerService.getId()
-    const newPlayer = new Player(1234, value.name, value.points);
+    const newPlayer = new Player(1234, this.playerName, value.points);
     this.playerService.addPlayer(newPlayer);
   }
 }

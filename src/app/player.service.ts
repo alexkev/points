@@ -24,16 +24,28 @@ export class PlayerService {
   }
 
   addPlayer(newPlayer: Player) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    // this.http.get<{ message: string, player: Player[] }>('http://localhost:3000/player')
+    //   .subscribe(
+    //     (responseData) => {
 
-    console.log(newPlayer);
+          // if ( )  player exsists
+          // post
+          const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+          });
 
-    this.http.post<{ message: string, player: Player[]}>('http://localhost:3000/player', newPlayer,
-    { headers: headers })
-    .subscribe(
-      (responseData) => {
-      });
-  }
+          console.log(newPlayer);
+
+          this.http.post<{ message: string, player: Player[] }>('http://localhost:3000/player', newPlayer,
+            { headers: headers })
+            .subscribe(
+              (res) => {
+              });
+
+          // else
+          // patch
+
+        // });
+
+   }
 }
