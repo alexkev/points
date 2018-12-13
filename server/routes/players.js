@@ -26,7 +26,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const players = new Player({
-    id: res.body.player,
+    id: req.body.id,
     name: req.body.name,
     points: req.body.points
   });

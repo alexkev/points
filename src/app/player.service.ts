@@ -28,11 +28,12 @@ export class PlayerService {
       'Content-Type': 'application/json'
     });
 
-    this.http.post<{ message: string, players: Player[]}>('https://points-1234.firebaseio.com/players',
+    console.log(newPlayer);
+
+    this.http.post<{ message: string, player: Player[]}>('http://localhost:3000/player', newPlayer,
     { headers: headers })
     .subscribe(
       (responseData) => {
-        this.getPlayers();
       });
   }
 }

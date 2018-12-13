@@ -22,7 +22,7 @@ export class PlayerComponent {
   onSubmit(form: NgForm) {
     const value = form.value;
     // TODO this.playerService.getId()
-    const newPlayer = new Player(1234 , value.name, value.points);
-    this.playerService.addPlayer();
+    const newPlayer = new Player(1234, value.name, value.points);
+    this.playerService.addPlayer(newPlayer);
   }
 }
