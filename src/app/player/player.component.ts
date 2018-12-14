@@ -13,6 +13,7 @@ export class PlayerComponent {
   player: Player;
   total: number;
   playerName: string;
+  playerId: number;
 
   constructor(private playerService: PlayerService) {}
 
@@ -27,8 +28,9 @@ export class PlayerComponent {
 
   addPoints(form: NgForm) {
     const value = form.value;
-    // TODO this.playerService.getId()
-    const newPlayer = new Player(1234, this.playerName, value.points);
+    this.playerId = this.playerService.setId();
+    console.log(this.playerId);
+    const newPlayer = new Player(this.playerId, this.playerName, value.points);
     this.playerService.addPlayer(newPlayer);
   }
 }

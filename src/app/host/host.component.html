@@ -1,5 +1,12 @@
 <form id="player-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <h1>Host ID: <input type="number"></h1>
+  <h1>Host ID: 
+    <input 
+      type="number"
+      name="id"
+      ngModel
+      #id="ngModel"
+    >
+  </h1>
   <button (click)="addNewGame()">Add New Game</button>
   <input type="submit">
 </form>

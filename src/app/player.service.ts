@@ -11,13 +11,13 @@ export class PlayerService {
 
   constructor(private http: HttpClient) { }
 
-  addId(hostId: number) {
+  getId(hostId: number) {
     // adds id of host
     this.playerId = hostId;
   }
 
-  getId() {
-    // gets id for players
+  setId() {
+    return this.playerId;
   }
 
   getPlayers() {

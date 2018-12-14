@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from '../player.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-host',
@@ -7,7 +8,7 @@ import { PlayerService } from '../player.service';
   styleUrls: ['./host.component.css']
 })
 export class HostComponent {
-  public hostId: number;
+  hostId: number;
 
   constructor(private playerService: PlayerService) { }
 
@@ -15,8 +16,10 @@ export class HostComponent {
     // TODO 4 digit generator
   }
 
-  onSubmit() {
-    this.playerService.addId(this.hostId);
+  onSubmit(form: NgForm) {
+    this.hostId = form.value.id;
+    console.log(this.hostId);
+    this.playerService.getId(this.hostId);
   }
 
 }
