@@ -43,15 +43,15 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.put('/:id', (req, res, next) => {
-  Player.findOne({ id: req.params.id, name: req.body.name })
+router.put('/:id/:name', (req, res, next) => {
+  Player.findOne({id: req.body.id, name: req.body.name})
     .then(player => {
       player.points = req.body.points;
 
-      Player.updateOne({ id: req.params.id }, player)
+      Player.updateOne({ id: req.params.id, name: req.body.name}, player)
         .then(result => {
           res.status(204).json({
-            message: 'Player updated successfully'})
+            message: 'Document updated successfully'})
         })
         .catch(error => {
           returnError(res, error);
@@ -60,7 +60,7 @@ router.put('/:id', (req, res, next) => {
     .catch(error => {
       res.status(500).json({
         message: 'Player not found.',
-        error: { player: 'Player not found'}
+        error: { player: 'Player not found'} 
       });
     });
 });

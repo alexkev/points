@@ -54,7 +54,8 @@ export class PlayerService {
       'Content-Type': 'application/json'
     });
 
-    this.http.put<{ message: string, documents: Document[]}>('http://localhost:3000/player', newPlayer
+    this.http.put<{ message: string, documents: Document[]}>('http://localhost:3000/player/' + newPlayer.id + '/' + newPlayer.name
+    , newPlayer
     , { headers: headers })
     .subscribe(
       (responseData) => {
