@@ -11,41 +11,53 @@ export class PlayerService {
 
   constructor(private http: HttpClient) { }
 
-  getId(hostId: number) {
-    // adds id of host
-    this.playerId = hostId;
-  }
-
-  setId() {
+  getId() {
     return this.playerId;
   }
 
+  setId(hostId: number) {
+    this.playerId = hostId;
+  }
+
   getPlayers() {
+    // TODO get all players with the same hostId
+  }
+
+  getPlayer() {
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
+
+  //   this.http.get<{ message: string, player: Player[] }>('http://localhost:3000/player', newPlayer,
+  //   { headers: headers })
+  //   .subscribe(
+  //     (res) => {
+  //     });
   }
 
   addPlayer(newPlayer: Player) {
-    // this.http.get<{ message: string, player: Player[] }>('http://localhost:3000/player')
-    //   .subscribe(
-    //     (responseData) => {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
-          // if ( )  player exsists
-          // post
-          const headers = new HttpHeaders({
-            'Content-Type': 'application/json'
-          });
+    console.log(newPlayer);
 
-          console.log(newPlayer);
+    this.http.post<{ message: string, player: Player[] }>('http://localhost:3000/player', newPlayer,
+      { headers: headers })
+      .subscribe(
+        (res) => {
+        });
+  }
 
-          this.http.post<{ message: string, player: Player[] }>('http://localhost:3000/player', newPlayer,
-            { headers: headers })
-            .subscribe(
-              (res) => {
-              });
+  addPoints(newPlayer: Player) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
 
-          // else
-          // patch
-
-        // });
-
-   }
+    this.http.put<{ message: string, documents: Document[]}>('http://localhost:3000/player', newPlayer
+    , { headers: headers })
+    .subscribe(
+      (responseData) => {
+      });
+  }
 }

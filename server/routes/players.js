@@ -5,7 +5,7 @@ const Player = require('../models/player');
 
 function returnError(res, error) {
   res.status(500).json({
-    players: 'An error occurred',
+    message: 'An error occurred',
     error: error
   });
 }
@@ -25,17 +25,17 @@ router.get('/', (req, res, next) => {
 );
 
 router.post('/', (req, res, next) => {
-  const players = new Player({
+  const player = new Player({
     id: req.body.id,
     name: req.body.name,
     points: req.body.points
   });
 
-  players.save()
-    .then(createdMessage => {
+  player.save()
+    .then(createdPlayer => {
       res.status(201).json({
-        players: 'Player added successfully',
-        messageId: createdMessage.id
+        message: 'Player added successfully',
+        playerId: createdPlayer._id
       });
     })
     .catch(error => {
@@ -44,15 +44,14 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-  Player.findOne({ id: req.params.id })
-    .then(players => {
-      players.name = req.body.name;
-      players.points = req.body.points;
+  Player.findOne({ id: req.params.id, name: req.body.name })
+    .then(player => {
+      player.points = req.body.points;
 
-      Player.updateOne({ id: req.params.id }, players)
+      Player.updateOne({ id: req.params.id }, player)
         .then(result => {
           res.status(204).json({
-            players: 'Player updated successfully'})
+            message: 'Player updated successfully'})
         })
         .catch(error => {
           returnError(res, error);
@@ -60,18 +59,18 @@ router.put('/:id', (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        players: 'Player not found.',
-        error: { players: 'Player not found'}
+        message: 'Player not found.',
+        error: { player: 'Player not found'}
       });
     });
 });
 
 router.delete("/:id", (req, res, next) => {
   Player.findOne({ id: req.params.id })
-    .then(players => {
+    .then(player => {
       Player.deleteOne({ id: req.params.id })
         .then(result => {
-          res.status(204).json({ players: "Player deleted successfully" });
+          res.status(204).json({ message: "Player deleted successfully" });
         })
         .catch(error => {
           returnError(res, error);
