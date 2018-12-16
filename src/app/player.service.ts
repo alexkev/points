@@ -23,16 +23,14 @@ export class PlayerService {
     // TODO get all players with the same hostId
   }
 
-  getPlayer() {
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   });
-
-  //   this.http.get<{ message: string, player: Player[] }>('http://localhost:3000/player', newPlayer,
-  //   { headers: headers })
-  //   .subscribe(
-  //     (res) => {
-  //     });
+  getPlayer(newPlayer: Player) {
+    this.http.get<{ message: string, player: Player[] }>('http://localhost:3000/player/'
+    + newPlayer.id + '/' + newPlayer.name)
+    .subscribe(
+      (res) => {
+        this.player = res.player;
+      });
+      return newPlayer;
   }
 
   addPlayer(newPlayer: Player) {

@@ -11,18 +11,21 @@
         </h1>
         <button type="submit">Add Player</button>
     </form>
-    <!-- <p *ngFor="point of player.points">{{ point }}</p> -->
+    <p>Points: </p>
+    <ul>
+        <li *ngFor="let arrayPoint of arrayPoints">{{ arrayPoint }}</li>
+    </ul>
     <form id="player-edit" (ngSubmit)="addPoints(f2)" #f2="ngForm">
-            <p>
-                <input 
-                    type="number" 
-                    placeholder="add points here" 
-                    name="points"
-                    ngModel
-                    #points="ngModel"
-                    >
-            </p>
+        <p>
+            <input 
+            type="number" 
+            placeholder="add points here" 
+            name="points"
+            ngModel
+            #points="ngModel"
+            >
+        </p>
         <button type="submit" [disabled]="!f.submitted">Add Points</button>
     </form>
-    <!-- <p>Total: {{ total }}</p> -->
+    <p>Total: {{ total }}</p>
 </div>

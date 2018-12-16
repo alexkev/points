@@ -13,18 +13,25 @@ export class PlayerComponent {
   playerName: string;
   total: number;
   newPlayer: Player;
+  points: number[] = [];
+  arrayPoints: number[] = [0];
 
   constructor(private playerService: PlayerService) {}
 
-  getTotal() {
-    // TODO get total of points array
-    // this.total = this.playerService.getPlayer(this.newPlayer);
+  getPoints(newPlayer: Player) {
+    this.newPlayer = this.playerService.getPlayer(this.newPlayer);
+    this.arrayPoints = this.arrayPoints.concat(this.newPlayer.points);
+    console.log(this.arrayPoints);
+  }
+
+  getTotal(newPlayer: Player) {
+    this.total = this.arrayPoints.reduce((a, b) => a + b, 0);
   }
 
   addPlayer(form: NgForm) {
     const value = form.value;
     this.playerName = value.name;
-    this.newPlayer = new Player(this.playerService.getId(), value.name , null);
+    this.newPlayer = new Player(this.playerService.getId(), value.name , this.points);
     console.log(this.newPlayer);
     this.playerService.addPlayer(this.newPlayer);
   }
@@ -35,5 +42,7 @@ export class PlayerComponent {
     this.newPlayer = new Player(this.playerService.getId(), this.playerName, value.points);
     console.log(this.newPlayer);
     this.playerService.addPoints(this.newPlayer);
+    this.getPoints(this.newPlayer);
+    this.getTotal(this.newPlayer);
   }
 }

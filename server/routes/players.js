@@ -24,6 +24,21 @@ router.get('/', (req, res, next) => {
   }
 );
 
+router.get('/:id/:name', (req, res, next) => {
+  Player.findOne({id: req.body.id, name: req.body.name})
+    .then(players => {
+      // res.send(players);
+      res.status(200).json({
+        message: 'Players fetched successfully',
+        players: players
+      });
+    })
+    .catch(error => {
+      returnError(res, error);
+    });
+  }
+);
+
 router.post('/', (req, res, next) => {
   const player = new Player({
     id: req.body.id,
@@ -46,7 +61,7 @@ router.post('/', (req, res, next) => {
 router.put('/:id/:name', (req, res, next) => {
   Player.findOne({id: req.body.id, name: req.body.name})
     .then(player => {
-      player.points = req.body.points;
+      player.points = player.points.concat(req.body.points);
 
       Player.updateOne({ id: req.params.id, name: req.body.name}, player)
         .then(result => {
