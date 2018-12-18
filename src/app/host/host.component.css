@@ -10,6 +10,8 @@ button {
 }
 
 input {
-
+    font-size: 25px;
+    max-width: 170px;
+    padding-left: 12px; 
     border-bottom: 2px solid black;
 }
