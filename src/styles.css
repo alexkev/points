@@ -1,30 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+    font-family: Roboto
+}
+
 input {
     border: none;
     font-size: 15px;
     background-color: rgba(255, 255, 255, 0);
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
 }
 
 button {
-	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
 	display: block;
     max-width: 180px;
     max-height: 30px;
-	text-decoration: none;
+    text-align: center;
 	border-radius: 4px;
     border-style: none;
-	padding: 10px;
-	color: rgba(0, 0, 0, 0.6);
-	box-shadow: rgba(221, 221, 221) 0 0px 0px 2px inset;
+    padding: 10px;
+    color: black;
+    background-color: white;
+    border: .5px solid black;
 }
 
 button:hover {
-	color: rgba(255, 255, 255);
-	box-shadow: rgba(0, 0, 0, 0.7) 0 0px 0px 40px inset;
+    color: white;
+	background-color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

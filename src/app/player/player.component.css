@@ -1,9 +1,10 @@
-input {
-     
-}
-
 .numPlayer {
     padding: 20px;
     width: 270px;
 }
+
+ul {
+    list-style-type: none;
+}
+
 

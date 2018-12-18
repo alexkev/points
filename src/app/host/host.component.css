@@ -1,0 +1,15 @@
+.player-edit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+button {
+    margin: 12px;
+}
+
+input {
+
+    border-bottom: 2px solid black;
+}
