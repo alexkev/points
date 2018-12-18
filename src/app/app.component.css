@@ -1,0 +1,42 @@
+
+.player {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.player :nth-child(5n + 1) {
+    background: #4285F4;
+}
+.player :nth-child(5n + 2) {
+    background: #FBBC05;
+}
+.player :nth-child(5n + 3) {
+    background: #EA4335;
+}
+.player :nth-child(5n + 4) {
+    background: #34A853;
+}
+.player :nth-child(5n + 5) {
+    background: #FFFFFF;
+}
+
+.divPlayer {
+    margin: 10px;
+    border-radius: 7px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.add {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+@media only screen and (min-width: 600px) {
+    .player {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+  }
+}
