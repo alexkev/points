@@ -3,12 +3,12 @@
     <h1>Host ID: 
       <input 
       type="number"
-      name="id"
-      [(ngModel)]="id"
+      name="hostId"
+      [(ngModel)]="hostId"
       value="{{ hostId }}"
       >
     </h1>
   </form>
-  <button type="submit">Join Game</button>
-  <button (click)="addNewGame()">Add New Game</button>
+  <!-- <button type="submit">Join Game</button> -->
+  <button (click)="addNewGame(f)">Add New Game</button>
 </div>
