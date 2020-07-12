@@ -1,10 +1,21 @@
 .numPlayer {
-    padding: 20px;
-    width: 270px;
+  padding: 20px;
+  width: 270px;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 50%;
+  width: 135px;
+  margin: 10px;
+}
+input {
+  width: 135px;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
-
-
